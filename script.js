@@ -165,8 +165,10 @@ function generate(){
         console.log("randG = "+randG);
         switch (randG){
             case 0:
+                document.getElementById("info2").innerHTML = "male";
                 return "male";
             case 1:
+                document.getElementById("info2").innerHTML = "female";
                 return "female";
         }
     }
@@ -181,7 +183,7 @@ function generate(){
     console.log("source = "+source);
 
     document.getElementById("photoContainer").innerHTML = "<img id='photo' src='"+source+"'>";
-    document.getElementById("info2").innerHTML = outputAge+"yo";
+    document.getElementById("info3").innerHTML = outputAge+"yo";
     randomizeCountry();
 }
 
