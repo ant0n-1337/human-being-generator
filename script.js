@@ -1,165 +1,31 @@
-var state = [
-    { name: "Birmingham, AL" },
-    { name: "Montgomery, AL" },
-    { name: "Huntsville, AL" },
-    { name: "Tuscaloosa, AL" },
-    { name: "Hoover, AL" },
-    { name: "Phoenix, AZ" },
-    { name: "Tucson, AZ" },
-    { name: "Mesa, AZ" },
-    { name: "Chandler, AZ" },
-    { name: "Glendale, AZ" },
-    { name: "Little Rock, AR" },
-    { name: "Fort Smith, AR" },
-    { name: "Springdale, AR" },
-    { name: "Bentonville, AR" },
-    { name: "Conway, AR" },
-    { name: "Los Angeles, CA" },
-    { name: "San Diego, CA" },
-    { name: "Compton, CA" },
-    { name: "San Francisco, CA" },
-    { name: "Oakland, CA" },
-    { name: "Denver, CO" },
-    { name: "Colorado Springs, CO" },
-    { name: "Aurora, CO" },
-    { name: "Fort Collins, CO" },
-    { name: "Lakewood, CO" },
-    { name: "Bridgeport, CT" },
-    { name: "New Haven, CT" },
-    { name: "Stamford, CT" },
-    { name: "Hartford, CT" },
-    { name: "Norwalk, CT" },
-    { name: "Washington, DC" },
-    { name: "Jacksonville, FL" },
-    { name: "Miami, FL" },
-    { name: "Tampa, FL" },
-    { name: "Orlando, FL" },
-    { name: "Fort Myers, FL" },
-    { name: "Atlanta, GA" },
-    { name: "Columbus, GA" },
-    { name: "Sandy Springs, GA" },
-    { name: "Roswell, GA" },
-    { name: "Johns Creek, GA" },
-    { name: "Chicago, IL" },
-    { name: "Rockford, IL" },
-    { name: "Springfield, IL" },
-    { name: "Peoria, IL" },
-    { name: "Cicero, IL" },
-    { name: "Indianapolis, IN" },
-    { name: "Fort Wayne, IN" },
-    { name: "Greenwood, IN" },
-    { name: "Evansville, IN" },
-    { name: "Mishawaka, IN" },
-    { name: "Wichita, KS" },
-    { name: "Overland Park, KS" },
-    { name: "Kansas City, KS" },
-    { name: "Lawrence, KS" },
-    { name: "Hutchinson, KS" },
-    { name: "New Orleans, LA" },
-    { name: "Shreveport, LA" },
-    { name: "Lafayette, LA" },
-    { name: "Lake Charles, LA" },
-    { name: "Bossier City, LA" },
-    { name: "Boston, MA" },
-    { name: "Worcester, MA" },
-    { name: "Cambridge, MA" },
-    { name: "Fitchburg, MA" },
-    { name: "Brockton, MA" },
-    { name: "Detroit, MI" },
-    { name: "Warren, MI" },
-    { name: "Sterling Heights, MI" },
-    { name: "Roseville, MI" },
-    { name: "Kentwood, MI" },
-    { name: "Minneapolis, MN" },
-    { name: "St. Paul, MN" },
-    { name: "Rochester, MN" },
-    { name: "Burnsville, MN" },
-    { name: "Plymouth, MN" },
-    { name: "Kansas City, MO" },
-    { name: "St. Louis, MO" },
-    { name: "Columbia, MO" },
-    { name: "Chesterfield, MO" },
-    { name: "Blue Springs, MO" },
-    { name: "Las Vegas, NV" },
-    { name: "Henderson, NV" },
-    { name: "North Las Vegas, NV" },
-    { name: "Carson City, NV" },
-    { name: "Reno, NV" },
-    { name: "Newark, NJ" },
-    { name: "Jersey City, NJ" },
-    { name: "Atlantic City, NJ" },
-    { name: "West New York, NJ" },
-    { name: "Paterson, NJ" },
-    { name: "Albuquerque, NM" },
-    { name: "Santa Fe, NM" },
-    { name: "Roswell, NM" },
-    { name: "Farmington, NM" },
-    { name: "Clovis, NM" },
-    { name: "New York, NY" },
-    { name: "Buffalo, NY" },
-    { name: "Niagara Falls, NY" },
-    { name: "Freeport, NY" },
-    { name: "Mount Vernon, NY" },
-    { name: "Charlotte, NC" },
-    { name: "Greensboro, NC" },
-    { name: "Asheville, NC" },
-    { name: "Chapel Hill, NC" },
-    { name: "Kannapolis, NC" },
-    { name: "Columbus, OH" },
-    { name: "Cleveland, OH" },
-    { name: "Cincinnati, OH" },
-    { name: "Akron, OH" },
-    { name: "Dayton, OH" },
-    { name: "Portland, OR" },
-    { name: "Eugene, OR" },
-    { name: "Beaverton, OR" },
-    { name: "Salem, OR" },
-    { name: "Gresham, OR" },
-    { name: "Philadelphia, PA" },
-    { name: "Pittsburgh, PA" },
-    { name: "Lancaster, PA" },
-    { name: "Reading, PA" },
-    { name: "York, PA" },
-    { name: "Memphis, TN" },
-    { name: "Knoxville, TN" },
-    { name: "Clarksville, TN" },
-    { name: "Jackson, TN" },
-    { name: "Johnson City, TN" },
-    { name: "Houston, TX" },
-    { name: "San Antonio, TX" },
-    { name: "Dallas, TX" },
-    { name: "Austin, TX" },
-    { name: "Wichita Falls, TX" },
-    { name: "Salt Lake City, UT" },
-    { name: "West Valley City, UT" },
-    { name: "West Jordan, UT" },
-    { name: "Layton, UT" },
-    { name: "Riverton, UT" },
-    { name: "Virginia Beach, VA" },
-    { name: "Norfolk, VA" },
-    { name: "Lynchburg, VA" },
-    { name: "Alexandria, VA" },
-    { name: "Hampton, VA" },
-    { name: "Seattle, WA" },
-    { name: "Tacoma, WA" },
-    { name: "Vancouver, WA" },
-    { name: "Redmond, WA" },
-    { name: "Auburn, WA" },
-    { name: "Milwaukee, WI" },
-    { name: "Madison, WI" },
-    { name: "Green Bay, WI" },
-    { name: "Kenosha, WI" },
-    { name: "Racine, WI" }
-]
+const state = [
+    "Birmingham, AL","Montgomery, AL","Huntsville, AL","Tuscaloosa, AL","Hoover, AL","Phoenix, AZ","Tucson, AZ","Mesa, AZ","Chandler, AZ","Glendale, AZ","Little Rock, AR","Fort Smith, AR","Springdale, AR","Bentonville, AR","Conway, AR","Los Angeles, CA","San Diego, CA","Compton, CA","San Francisco, CA","Oakland, CA","Denver, CO","Colorado Springs, CO","Aurora, CO","Fort Collins, CO","Lakewood, CO","Bridgeport, CT","New Haven, CT","Stamford, CT","Hartford, CT","Norwalk, CT","Washington, DC","Jacksonville, FL","Miami, FL","Tampa, FL","Orlando, FL","Fort Myers, FL","Atlanta, GA","Columbus, GA","Sandy Springs, GA","Roswell, GA","Johns Creek, GA","Chicago, IL","Rockford, IL","Springfield, IL","Peoria, IL","Cicero, IL","Indianapolis, IN","Fort Wayne, IN","Greenwood, IN","Evansville, IN","Mishawaka, IN","Wichita, KS","Overland Park, KS","Kansas City, KS","Lawrence, KS","Hutchinson, KS","New Orleans, LA","Shreveport, LA","Lafayette, LA","Lake Charles, LA","Bossier City, LA","Boston, MA","Worcester, MA","Cambridge, MA","Fitchburg, MA","Brockton, MA","Detroit, MI","Warren, MI","Sterling Heights, MI","Roseville, MI","Kentwood, MI","Minneapolis, MN","St. Paul, MN","Rochester, MN","Burnsville, MN","Plymouth, MN","Kansas City, MO","St. Louis, MO","Columbia, MO","Chesterfield, MO","Blue Springs, MO","Las Vegas, NV","Henderson, NV","North Las Vegas, NV","Carson City, NV","Reno, NV","Newark, NJ","Jersey City, NJ","Atlantic City, NJ","West New York, NJ","Paterson, NJ","Albuquerque, NM","Santa Fe, NM","Roswell, NM","Farmington, NM","Clovis, NM","New York, NY","Buffalo, NY","Niagara Falls, NY","Freeport, NY","Mount Vernon, NY","Charlotte, NC","Greensboro, NC","Asheville, NC","Chapel Hill, NC","Kannapolis, NC","Columbus, OH","Cleveland, OH","Cincinnati, OH","Akron, OH","Dayton, OH","Portland, OR","Eugene, OR","Beaverton, OR","Salem, OR","Gresham, OR","Philadelphia, PA","Pittsburgh, PA","Lancaster, PA","Reading, PA","York, PA","Memphis, TN","Knoxville, TN","Clarksville, TN","Jackson, TN","Johnson City, TN","Houston, TX","San Antonio, TX","Dallas, TX","Austin, TX","Wichita Falls, TX","Salt Lake City, UT","West Valley City, UT","West Jordan, UT","Layton, UT","Riverton, UT","Virginia Beach, VA","Norfolk, VA","Lynchburg, VA","Alexandria, VA","Hampton, VA","Seattle, WA","Tacoma, WA","Vancouver, WA","Redmond, WA","Auburn, WA","Milwaukee, WI","Madison, WI","Green Bay, WI","Kenosha, WI", "Racine, WI"
+];
 
+const sexuality = ["Straight", "Gay", "Bisexual", "Pansexual", "Asexual", "Queer"];
+const religion = ["Catholic", "Protesant", "Atheist", "Agnostic", "Mormon", "Jew", "Muslim", "Buddhist", "Hinduist", "Rastafarian", "Shintoist", "Taoism", "Pagan,"];
+const relationship = ["Single", "Married", "Engaged", "Open relationship", "Widowed", "Divorced"];
 
 function generate(){
     var gender = randomizeGender();
     var genderPrint = "gender="+gender;
-    var minAge = Math.floor(Math.random(12, 55)*55);
+    var minAge = randomizeMinAge();
     var maxAge = minAge+5;
-    var outputAge = minAge+3;
+    var outputAge = randomizeOutputAge();
     
+    function randomizeMinAge(){
+        min = Math.ceil(15);
+        max = Math.floor(55);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+    function randomizeOutputAge(){
+        min = Math.ceil(minAge);
+        max = Math.floor(maxAge);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
     function randomizeGender(){
         var randG = Math.floor(Math.random(0, 1)*2);
         console.log("randG = "+randG);
@@ -185,11 +51,33 @@ function generate(){
     document.getElementById("photoContainer").innerHTML = "<img id='photo' src='"+source+"'>";
     document.getElementById("info3").innerHTML = outputAge+"yo";
     randomizeCountry();
+    randomizeSexuality();
+    randomizeReligion();
+    randomizeRelationship();
 }
 
 function randomizeCountry(){
     var randC = Math.floor(Math.random(1, 151)*151);
-    document.getElementById("info").innerHTML = state[randC].name;
+    document.getElementById("info").innerHTML = state[randC];
 }
 
+function randomizeSexuality(){
+    var randSx = Math.floor(Math.random(0, 4)*4);
+    document.getElementById("info4").innerHTML = sexuality[randSx];
+}
+
+function randomizeReligion(){
+    var randRg = Math.floor(Math.random(0, 12)*12);
+    document.getElementById("info5").innerHTML = religion[randRg];
+}
+
+function randomizeRelationship(){
+    var randRs = Math.floor(Math.random(0, 5)*5);
+    document.getElementById("info6").innerHTML = relationship[randRs];
+}
+
+/*
+    code cleaning and optimalization, html upgrades, design;
+    political views (with compass probably); family (sons, daughters, brothers, sisters); names surnames etc; profession; fav things - music, food, movies, tv series; material goods (car, phone, gaming console, luxury goods); housing conditions (a detached house, flat, apartament, rented room)
+*/
 
